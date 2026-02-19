@@ -3,7 +3,7 @@
 	url = https://github.com/Sebane1/BoneReadingCore.git
 [submodule "LooseTextureCompilerCore"]
 	path = LooseTextureCompilerCore
-	url = https://github.com/Sebane1/LooseTextureCompilerCore.git
+	url = https://github.com/ShiftyKiwi/LooseTextureCompilerCore.git
 [submodule "DragAndDropTexturing/IPC/PenumbraAndGlamourerHelpers"]
 	path = DragAndDropTexturing/IPC/PenumbraAndGlamourerHelpers
 	url = https://github.com/Sebane1/PenumbraAndGlamourerHelpers.git
