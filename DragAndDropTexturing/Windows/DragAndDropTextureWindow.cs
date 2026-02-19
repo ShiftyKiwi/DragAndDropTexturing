@@ -255,7 +255,8 @@ namespace RoleplayingVoice
                                 {
                                     selectedPlayerCollection = PenumbraAndGlamourerIpcWrapper.Instance.GetCollectionForObject.Invoke(selectedPlayer.Value.ObjectIndex).Item3.Id;
                                 }
-                                string debugInfo = (_closestBone != null ? "Closest Bone" + _closestBone.HkaBone.Name.String : "") + " " + (cursorPosition != null ? cursorPosition.X + " " + cursorPosition.Y : "");
+                                // Avoid dereferencing unmanaged bone-name pointers here; they can be invalid during model/race swaps.
+                                string debugInfo = (_closestBone != null ? "Closest Bone" : "") + " " + cursorPosition.X + " " + cursorPosition.Y;
                                 if (selectedPlayer.Value != null)
                                 {
                                     if (selectedPlayerCollection != mainPlayerCollection ||
