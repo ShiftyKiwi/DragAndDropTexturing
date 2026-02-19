@@ -9,4 +9,4 @@
 	url = https://github.com/Sebane1/PenumbraAndGlamourerHelpers.git
 [submodule "DragAndDropTexturing/ThreadSafeDalamudObjectTable"]
 	path = DragAndDropTexturing/ThreadSafeDalamudObjectTable
-	url = https://github.com/Sebane1/ThreadSafeDalamudObjectTable
+	url = https://github.com/ShiftyKiwi/ThreadSafeDalamudObjectTable.git
