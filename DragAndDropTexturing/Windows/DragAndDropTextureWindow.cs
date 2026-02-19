@@ -537,7 +537,29 @@ namespace RoleplayingVoice
                 Thread.Sleep(100);
                 PenumbraAndGlamourerIpcWrapper.Instance.AddMod.Invoke(name);
                 PenumbraAndGlamourerIpcWrapper.Instance.ReloadMod.Invoke(path, name);
-                Guid collection = PenumbraAndGlamourerIpcWrapper.Instance.GetCollectionForObject.Invoke(character.Value.ObjectIndex).Item3.Id;
+                var objectIndex = character.Value?.ObjectIndex ?? ushort.MaxValue;
+                if (objectIndex == ushort.MaxValue && Plugin.SafeGameObjectManager.LocalPlayer != null)
+                {
+                    objectIndex = Plugin.SafeGameObjectManager.LocalPlayer.ObjectIndex;
+                }
+
+                Guid collection;
+                try
+                {
+                    collection = PenumbraAndGlamourerIpcWrapper.Instance.GetCollectionForObject.Invoke(objectIndex).Item3.Id;
+                }
+                catch
+                {
+                    if (Plugin.SafeGameObjectManager.LocalPlayer == null)
+                    {
+                        plugin.Chat.PrintError("[Drag And Drop Texturing] Could not resolve target collection.");
+                        _lockDuplicateGeneration = false;
+                        return false;
+                    }
+
+                    collection = PenumbraAndGlamourerIpcWrapper.Instance.GetCollectionForObject.Invoke(Plugin.SafeGameObjectManager.LocalPlayer.ObjectIndex).Item3.Id;
+                }
+
                 PenumbraAndGlamourerIpcWrapper.Instance.TrySetMod.Invoke(collection, path, true, name);
                 PenumbraAndGlamourerIpcWrapper.Instance.TrySetModPriority.Invoke(collection, path, 100, name);
                 var settings = PenumbraAndGlamourerIpcWrapper.Instance.GetCurrentModSettings.Invoke(collection, path, name, true);
@@ -546,9 +568,9 @@ namespace RoleplayingVoice
                     PenumbraAndGlamourerIpcWrapper.Instance.TrySetModSetting.Invoke(collection, path, group.Key, "Enable", name);
                 }
                 Thread.Sleep(300);
-                PenumbraAndGlamourerIpcWrapper.Instance.RedrawObject.Invoke(character.Value.ObjectIndex, Penumbra.Api.Enums.RedrawType.Redraw);
+                PenumbraAndGlamourerIpcWrapper.Instance.RedrawObject.Invoke(objectIndex, Penumbra.Api.Enums.RedrawType.Redraw);
                 Thread.Sleep(300);
-                PenumbraAndGlamourerIpcWrapper.Instance.RedrawObject.Invoke(character.Value.ObjectIndex, Penumbra.Api.Enums.RedrawType.Redraw);
+                PenumbraAndGlamourerIpcWrapper.Instance.RedrawObject.Invoke(objectIndex, Penumbra.Api.Enums.RedrawType.Redraw);
                 _lockDuplicateGeneration = false;
                 plugin.Chat.Print("[Drag And Drop Texturing] Import complete! Created mod is toggleable in penumbra.");
             }

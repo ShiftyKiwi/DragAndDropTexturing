@@ -33,7 +33,7 @@ public sealed class Plugin : IDalamudPlugin
     public Configuration Configuration { get; init; }
 
     public readonly WindowSystem WindowSystem = new("DragAndDropTexturing");
-    private MainWindow MainWindow { get; init; }
+    private MainWindow? MainWindow { get; init; }
     internal DragAndDropTextureWindow? DragAndDropTextures { get; private set; }
     public IChatGui Chat { get => _chat; set => _chat = value; }
     public ThreadSafeGameObjectManager SafeGameObjectManager { get => _safeGameObjectManager; set => _safeGameObjectManager = value; }
@@ -72,6 +72,11 @@ public sealed class Plugin : IDalamudPlugin
     }
     public Dalamud.Game.ClientState.Objects.Types.IGameObject[] GetNearestObjects()
     {
+        if (SafeGameObjectManager.LocalPlayer == null)
+        {
+            return [];
+        }
+
         _playerCount = 0;
         List<Dalamud.Game.ClientState.Objects.Types.IGameObject> gameObjects = new List<Dalamud.Game.ClientState.Objects.Types.IGameObject>();
         foreach (var item in _safeGameObjectManager)
@@ -109,5 +114,8 @@ public sealed class Plugin : IDalamudPlugin
 
     private void DrawUI() => WindowSystem.Draw();
 
-    public void ToggleMainUI() => MainWindow.Toggle();
+    public void ToggleMainUI()
+    {
+        MainWindow?.Toggle();
+    }
 }
