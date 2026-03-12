@@ -40,15 +40,7 @@ namespace RoleplayingVoice
         private TextureProcessor _textureProcessor;
         private string _exportStatus;
         private bool _lockDuplicateGeneration;
-        private object _currentMod;
         private CharacterCustomization _currentCustomization;
-        private string[] _choiceTypes;
-        private string[] _bodyNames;
-        private string[] _bodyNamesSimplified;
-        private string[] _genders;
-        private string[] _faceTypes;
-        private string[] _faceParts;
-        private string[] _faceScales;
         private ITextureProvider _textureProvider;
         private BodyDragPart bodyDragPart;
         private bool _alreadyLoadingFrame;
@@ -135,7 +127,6 @@ namespace RoleplayingVoice
                             mainPlayerCollection = PenumbraAndGlamourerIpcWrapper.Instance.GetCollectionForObject.Invoke(Plugin.SafeGameObjectManager.LocalPlayer.ObjectIndex).Item3.Id;
                             List<KeyValuePair<string, ICharacter>> _objects = new List<KeyValuePair<string, ICharacter>>();
                             _objects.Add(new KeyValuePair<string, ICharacter>(Plugin.SafeGameObjectManager.LocalPlayer.Name.TextValue, Plugin.SafeGameObjectManager.LocalPlayer as ICharacter));
-                            bool oneMinionOnly = false;
                             foreach (var item in Plugin.GetNearestObjects())
                             {
                                 ICharacter character = item as ICharacter;
@@ -255,7 +246,7 @@ namespace RoleplayingVoice
                                 {
                                     selectedPlayerCollection = PenumbraAndGlamourerIpcWrapper.Instance.GetCollectionForObject.Invoke(selectedPlayer.Value.ObjectIndex).Item3.Id;
                                 }
-                                string debugInfo = (_closestBone != null ? "Closest Bone" + _closestBone.HkaBone.Name.String : "") + " " + (cursorPosition != null ? cursorPosition.X + " " + cursorPosition.Y : "");
+                                string debugInfo = (_closestBone != null ? "Closest Bone" + _closestBone.HkaBone.Name.String : "") + " " + cursorPosition.X + " " + cursorPosition.Y;
                                 if (selectedPlayer.Value != null)
                                 {
                                     if (selectedPlayerCollection != mainPlayerCollection ||

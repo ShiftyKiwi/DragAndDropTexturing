@@ -6,7 +6,7 @@
 	url = https://github.com/ShiftyKiwi/LooseTextureCompilerCore.git
 [submodule "DragAndDropTexturing/IPC/PenumbraAndGlamourerHelpers"]
 	path = DragAndDropTexturing/IPC/PenumbraAndGlamourerHelpers
-	url = https://github.com/Sebane1/PenumbraAndGlamourerHelpers.git
+	url = https://github.com/ShiftyKiwi/PenumbraAndGlamourerHelpers.git
 [submodule "DragAndDropTexturing/ThreadSafeDalamudObjectTable"]
 	path = DragAndDropTexturing/ThreadSafeDalamudObjectTable
 	url = https://github.com/ShiftyKiwi/ThreadSafeDalamudObjectTable.git
