@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Dalamud.NET.Sdk/14.0.2">
   <PropertyGroup>
-    <Version>0.0.1.4</Version>
+    <Version>0.0.1.5</Version>
     <Description>Drag and drop textures directly onto what you see in-game.</Description>
     <PackageProjectUrl>https://github.com/ShiftyKiwi/DragAndDropTexturing</PackageProjectUrl>
     <PackageLicenseExpression>AGPL-3.0-or-later</PackageLicenseExpression>
@@ -42,3 +42,4 @@
     <PackageReference Update="DalamudPackager" Version="14.0.2" />
   </ItemGroup>
 </Project>
+
