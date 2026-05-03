@@ -84,7 +84,7 @@ public sealed class Plugin : IDalamudPlugin
                     gameObjects.Add((item as Dalamud.Game.ClientState.Objects.Types.IGameObject));
                 //}
             }
-            if (item.ObjectKind == ObjectKind.Player)
+            if (item.ObjectKind == ObjectKind.Pc)
             {
                 _playerCount++;
             }

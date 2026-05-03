@@ -8,18 +8,18 @@
       "Texturing"
     ],
     "InternalName": "DragAndDropTexturing",
-    "AssemblyVersion": "0.0.1.5",
-    "TestingAssemblyVersion": "0.0.1.5",
+    "AssemblyVersion": "0.0.1.6",
+    "TestingAssemblyVersion": "0.0.1.6",
     "RepoUrl": "https://github.com/ShiftyKiwi/DragAndDropTexturing",
     "ApplicableVersion": "any",
-    "DalamudApiLevel": 14,
+    "DalamudApiLevel": 15,
     "IsHide": "False",
     "IsTestingExclusive": "False",
     "DownloadCount": 0,
-    "LastUpdate": 1774368225,
-    "DownloadLinkInstall": "https://github.com/ShiftyKiwi/DragAndDropTexturing/releases/download/0.0.1.5/latest.zip",
-    "DownloadLinkTesting": "https://github.com/ShiftyKiwi/DragAndDropTexturing/releases/download/0.0.1.5/latest.zip",
-    "DownloadLinkUpdate": "https://github.com/ShiftyKiwi/DragAndDropTexturing/releases/download/0.0.1.5/latest.zip",
+    "LastUpdate": 1777846439,
+    "DownloadLinkInstall": "https://github.com/ShiftyKiwi/DragAndDropTexturing/releases/download/0.0.1.6/latest.zip",
+    "DownloadLinkTesting": "https://github.com/ShiftyKiwi/DragAndDropTexturing/releases/download/0.0.1.6/latest.zip",
+    "DownloadLinkUpdate": "https://github.com/ShiftyKiwi/DragAndDropTexturing/releases/download/0.0.1.6/latest.zip",
     "IconUrl": ""
   }
 ]
